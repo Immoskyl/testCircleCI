@@ -23,7 +23,7 @@ class PostTestCase(TestCase):
     def test_qureying_non_existant_post(self):
         """Some posts dont exist"""
         try:
-            post1 = Post.objects.get(title="Testouille")
+            post1 = Post.objects.get(title="Testouillette")
             error = False
         except :
             error = True
