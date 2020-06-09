@@ -20,6 +20,15 @@ class PostTestCase(TestCase):
         post1 = Post.objects.get(title="Test")
         self.assertEqual(post1.text, "We are testing this")
 
+    def test_qureying_non_existant_post(self):
+        """Some posts dont exist"""
+        try:
+            post1 = Post.objects.get(title="Testouille")
+            error = False
+        except :
+            error = True
+        self.assertTrue(error)
+
     def test_valid_form_data(self):
         form = PostForm({
             'title': "Just testing",
